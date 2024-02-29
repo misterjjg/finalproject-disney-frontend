@@ -8,3 +8,9 @@
   font-weight: 700;
   src: url(../vendor/fonts/CabinetGrotesk-Medium.woff) format("woff");
 }
+
+@font-face {
+  font-family: "MouseMemoirs";
+  font-weight: 700;
+  src: url(../vendor/fonts/MouseMemoirs-Regular.ttf) format("ttf");
+}
