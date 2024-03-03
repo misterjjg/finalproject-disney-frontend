@@ -1,1 +1,1 @@
-# finalproject-disney-frontend
+# finalproject-news-explorer-frontend
