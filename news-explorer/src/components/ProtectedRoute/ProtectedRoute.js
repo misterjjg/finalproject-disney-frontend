@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
-import AppContext from "../../contexts/AppContext";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-const ProtectedRoute = ({ children, ...props }) => {
-  const value = React.useContext(AppContext);
+const ProtectedRoute = ({ children, ...rest }) => {
+  const { currentUser } = useContext(CurrentUserContext);
 
   return (
-    <Route
-      {...props}
-      children={value.state.loggedIn === true ? children : <Redirect to="/" />}
-    />
+    <Route {...rest}>
+      {currentUser?.name || localStorage.getItem("jwt")?.length > 0
+        ? children
+        : (rest.onSignInModal(), (<Redirect to="/" />))}
+    </Route>
   );
 };
 
