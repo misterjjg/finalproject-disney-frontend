@@ -20,7 +20,7 @@ const ModalWithForm = ({
           alt={"Close Icon"}
         />
         <h3 className="modal__title">{title}</h3>
-        <form className="modal__labels" onClick={onSubmit}>
+        <form className="modal__labels" onSubmit={onSubmit}>
           {children}
           {title === "Sign In" ? (
             <div className="modal__buttons">

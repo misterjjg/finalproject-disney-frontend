@@ -1,0 +1,125 @@
+.menu {
+  display: none;
+}
+
+@media screen and (max-width: 470px) {
+  .menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    height: 500px;
+    width: 100%;
+  }
+  .menu__home-link {
+    color: white;
+    text-decoration: none;
+  }
+  .menu__header-content {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    background-color: black;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-bottom: 20px;
+  }
+  .menu__header-title {
+    margin: 0;
+    color: white;
+    font-family: "Roboto Slab", serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+  }
+  .menu__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: 56px;
+    border-bottom: 2px solid;
+    border-bottom-color: white;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .menu__close-button {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: 19px;
+    right: 16px;
+  }
+  .menu__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 30lvh;
+  }
+
+  .menu__button {
+    width: 288px;
+    height: 56px;
+    color: white;
+    background-color: black;
+    border-style: none;
+    font-family: "Roboto Slab", serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 56px;
+    padding: 0px;
+  }
+  .menu__saved-news {
+    display: flex;
+    width: 288px;
+    justify-content: flex-start;
+    flex-direction: row;
+  }
+  .menu__saved-news-link {
+    text-decoration: none;
+    font-family: "Roboto Slab", serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 56px;
+    color: white;
+  }
+  .menu__button-home {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .menu__button-signin {
+    border: 1px solid white;
+    border-radius: 100px;
+  }
+  .menu__remaining {
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+    position: fixed;
+    top: 1px;
+  }
+  .menu__button-signin:hover {
+    cursor: pointer;
+  }
+}

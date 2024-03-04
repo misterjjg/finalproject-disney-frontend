@@ -39,6 +39,12 @@
   min-height: 120px;
 }
 
+.about__image {
+  width: 464px;
+  height: 464px;
+  border-radius: 1000px;
+}
+
 @media screen and (max-width: 900px) {
   .about {
     display: flex;
