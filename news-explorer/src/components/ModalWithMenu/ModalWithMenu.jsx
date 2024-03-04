@@ -63,3 +63,5 @@ const ModalWithMenu = ({ onClose, onLoginModal, onSignOut }) => {
     </div>
   );
 };
+
+export default ModalWithMenu;
