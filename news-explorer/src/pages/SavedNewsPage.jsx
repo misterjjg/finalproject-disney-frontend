@@ -5,8 +5,8 @@ import Preloader from "../components/Preloader/Preloader";
 import Footer from "../components/Footer/Footer";
 
 const SavedNewsPage = ({
-  onLogin,
-  onRegister,
+  onLoginModal,
+  onRegisterModal,
   onClose,
   onSignOut,
   onMenuModal,
@@ -19,8 +19,8 @@ const SavedNewsPage = ({
   return (
     <div>
       <Header
-        onLogin={onLogin}
-        onRegister={onRegister}
+        onLoginModal={onLoginModal}
+        onRegisterModal={onRegisterModal}
         onClose={onClose}
         onMenuModal={onMenuModal}
         onSignOut={onSignOut}
@@ -28,8 +28,8 @@ const SavedNewsPage = ({
       />
       <section>
         <SavedNews
-          onLogin={onLogin}
-          onRegister={onRegister}
+          onLoginModal={onLoginModal}
+          onRegisterModal={onRegisterModal}
           onClose={onClose}
           onMenuModal={onMenuModal}
         />

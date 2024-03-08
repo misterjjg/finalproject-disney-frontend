@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const RegisterModal = ({ onClose, onRegister, isOpen }) => {
+const RegisterModal = ({ onClose, onRegisterModal, isOpen }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassWord] = useState("");
@@ -30,7 +30,7 @@ const RegisterModal = ({ onClose, onRegister, isOpen }) => {
       onClose={onClose}
       isOpen={isOpen}
       onSubmit={handleRegisterSubmit}
-      onRegister={onRegister}
+      onRegisterModal={onRegisterModal}
     >
       <fieldset className="modal__form-field">
         <label className="modal__label">

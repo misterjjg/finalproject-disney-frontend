@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const LoginModal = ({ onClose, onLogin, isOpen, onSignIn }) => {
+const LoginModal = ({ onClose, onLoginModal, isOpen, onSignIn }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -26,7 +26,7 @@ const LoginModal = ({ onClose, onLogin, isOpen, onSignIn }) => {
       onClose={onClose}
       isOpen={isOpen}
       onSubmit={handleLoginSubmit}
-      onLogin={onLogin}
+      onLoginModal={onLoginModal}
     >
       <fieldset className="modal__form-field">
         <label className="modal__label">

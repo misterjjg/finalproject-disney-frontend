@@ -6,8 +6,8 @@ import About from "../components/About/About";
 import Footer from "../components/Footer/Footer";
 
 const Home = ({
-  onLogin,
-  onRegister,
+  onLoginModal,
+  onRegisterModal,
   onClose,
   onSearch,
   onSignOut,
@@ -22,8 +22,8 @@ const Home = ({
     <div>
       <div className="header__main">
         <Header
-          onLogin={onLogin}
-          onRegister={onRegister}
+          onLoginModal={onLoginModal}
+          onRegisterModal={onRegisterModal}
           onClose={onClose}
           onMenuModal={onMenuModal}
           onSignOut={onSignOut}
@@ -31,8 +31,8 @@ const Home = ({
         />
         <section>
           <Main
-            onLogin={onLogin}
-            onRegister={onRegister}
+            onLoginModal={onLoginModal}
+            onRegisterModal={onRegisterModal}
             onClose={onClose}
             onSearch={onSearch}
             onSignOut={onSignOut}

@@ -9,7 +9,7 @@ const ProtectedRoute = ({ children, ...rest }) => {
     <Route {...rest}>
       {currentUser?.name || localStorage.getItem("jwt")?.length > 0
         ? children
-        : (rest.onLogin(), (<Redirect to="/" />))}
+        : (rest.onLoginModal(), (<Redirect to="/" />))}
     </Route>
   );
 };

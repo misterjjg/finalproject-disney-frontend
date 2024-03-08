@@ -1,2 +1,8 @@
 @import url(../../vendor/fonts.css);
 @import url(../../vendor/normalize.css);
+
+.app {
+  width: 100%;
+  max-width: 1440px;
+  margin: auto;
+}
