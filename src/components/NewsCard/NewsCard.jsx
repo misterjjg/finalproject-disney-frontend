@@ -6,6 +6,7 @@ import { SavedCardsContext } from "../../contexts/SavedCardsContext";
 import bookMark from "../../images/Bookmark.svg";
 import bookMarkSaved from "../../images/Bookmark-saved.svg";
 import bookMarkHover from "../../images/Bookmark-hover.svg";
+import Trash from "../../images/Trash.svg";
 
 const NewsCard = (props) => {
   const location = useLocation();
@@ -123,7 +124,7 @@ const NewsCard = (props) => {
             <button className="card__save-button">
               <img
                 className="card__save-button-image"
-                src={trash}
+                src={Trash}
                 alt="save-button"
                 onClick={() => {
                   checkSaveStatus({ ...props });

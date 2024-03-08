@@ -1,6 +1,6 @@
 import "./App.css";
-import Footer from "../Footer/Footer";
-import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+// import Footer from "../Footer/Footer";
+// import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import ModalWithMenu from "../ModalWithMenu/ModalWithMenu";

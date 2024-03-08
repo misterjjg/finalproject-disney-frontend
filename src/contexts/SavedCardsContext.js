@@ -5,4 +5,4 @@ const SavedCardsContext = React.createContext({
   setSavedCardsState: () => {},
 });
 
-export default SavedCardsContext;
+export { SavedCardsContext };

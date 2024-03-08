@@ -85,3 +85,5 @@ const NewsCardList = ({ children, cards, error, checkSaveStatus }) => {
     </section>
   );
 };
+
+export default NewsCardList;

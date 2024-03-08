@@ -5,7 +5,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-const Header = ({ onSignIn, onSignOut, onMenuModal, currentPage }) => {
+const Header = ({ onLoginModal, onSignOut, onMenuModal, currentPage }) => {
   const { currentUser } = useContext(CurrentUserContext);
 
   return (
@@ -91,7 +91,7 @@ const Header = ({ onSignIn, onSignOut, onMenuModal, currentPage }) => {
         {!currentUser?.name && currentPage === "Home" ? (
           <button
             className="header__button header__signin header__home"
-            onClick={onSignIn}
+            onClick={onLoginModal}
           >
             <p className="header__button-title">Sign-In</p>
           </button>
@@ -99,7 +99,7 @@ const Header = ({ onSignIn, onSignOut, onMenuModal, currentPage }) => {
           !currentUser?.name && (
             <button
               className="header__button header__signin"
-              onClick={onSignIn}
+              onClick={onLoginModal}
             >
               <p className="header__button-title">Sign-In</p>
             </button>

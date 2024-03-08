@@ -2,7 +2,7 @@ const apiKey = "eac98321e3904e09af60fc0d8701e640";
 const date = new Date();
 const tempTo = date.toISOString();
 date.setDate(date.getDate() - 7);
-const tempFrom = date.toISOString();
+// const tempFrom = date.toISOString();
 const pageSize = 100;
 const to = tempTo.slice(0, 10);
 const from = tempTo.slice(0, 10);

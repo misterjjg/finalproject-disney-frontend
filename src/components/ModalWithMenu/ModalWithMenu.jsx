@@ -26,7 +26,9 @@ const ModalWithMenu = ({ onClose, onLoginModal, onSignOut }) => {
         </div>
         <div className="menu__content">
           <button className="menu__button menu__button-home">
-            <Link className="menu__home-link">Home</Link>
+            <Link className="menu__home-link" to="/">
+              Home
+            </Link>
           </button>
 
           {!currentUser?.email && (

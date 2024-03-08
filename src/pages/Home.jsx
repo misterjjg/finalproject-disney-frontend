@@ -20,7 +20,7 @@ const Home = ({
 }) => {
   return (
     <div>
-      <div className="header__main">
+      <div className="header-main">
         <Header
           onLoginModal={onLoginModal}
           onRegisterModal={onRegisterModal}
