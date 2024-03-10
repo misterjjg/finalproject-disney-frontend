@@ -1,59 +1,50 @@
 import "./ModalWithForm.css";
-import CloseButton from "../../images/CloseButton.svg";
+import React from "react";
 
 const ModalWithForm = ({
-  children,
-  buttonText,
   title,
   onClose,
   onSubmit,
-  onRegisterModal,
-  onLoginModal,
+  name,
+  children,
+  isSubmitDisabled,
+  buttonText,
+  setModals,
 }) => {
+  const handleOutsideClick = (e) => {
+    if (e.target.classList.contains("modal__section")) {
+      setModals({ signin: false, signup: false, success: false, menu: false });
+    }
+  };
+
   return (
-    <div className={`modal`}>
-      <div className="modal__content">
-        <img
-          className="modal__close-button-logo"
-          onClick={onClose}
-          src={CloseButton}
-          alt={"Close Icon"}
-        />
-        <h3 className="modal__title">{title}</h3>
-        <form className="modal__labels" onSubmit={onSubmit}>
-          {children}
-          {title === "Sign In" ? (
-            <div className="modal__buttons">
-              <button className="modal__button-submit" type="submit">
-                {buttonText}
-              </button>
-              <div className="modal__button-other-option-content">
-                <p className="modal__button-other-option-or">or</p>
-                <button
-                  className="modal__button-other-option"
-                  onClick={onRegisterModal}
-                >
-                  Sign Up
-                </button>
-              </div>
-            </div>
-          ) : (
-            <div className="modal__buttons">
-              <button className="modal__button-submit" type="submit">
-                {buttonText}
-              </button>
-              <div className="modal__button-other-option-content modal__button-other-option-signup">
-                <p className="modal__button-other-option-or">or</p>
-                <button
-                  className="modal__button-other-option"
-                  onClick={onLoginModal}
-                >
-                  Sign In
-                </button>
-              </div>
-            </div>
-          )}
-        </form>
+    <div className="modal">
+      <div
+        className={`modal__section modal__section_${name}`}
+        onClick={handleOutsideClick}
+      >
+        <div className={`modal__content modal__content_${name}`}>
+          <button
+            className={`modal__button-reset modal__button-reset_${name}`}
+            type="button"
+            onClick={onClose}
+          ></button>
+          <h3 className={`modal__title modal__title_${name}`}>{title}</h3>
+          <form
+            className={`modal__form modal__form_${name}`}
+            onSubmit={onSubmit}
+          >
+            {children}
+            <button
+              className={`modal__button-submit modal__button-submit_${name}`}
+              type="submit"
+              disabled={!isSubmitDisabled}
+              tabIndex="0"
+            >
+              {buttonText}
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );

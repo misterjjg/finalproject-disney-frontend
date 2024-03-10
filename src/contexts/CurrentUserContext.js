@@ -1,8 +1,7 @@
 import React from "react";
 
 const CurrentUserContext = React.createContext({
-  currentUser: {},
-  setCurrentUser: () => {},
+  currentUser: "",
 });
 
 export { CurrentUserContext };

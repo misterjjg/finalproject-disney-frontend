@@ -1,0 +1,126 @@
+.saved__section {
+  display: flex;
+  flex-direction: column;
+  padding-left: 100px;
+  padding-right: 100px;
+  color: black;
+}
+
+.saved__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: white;
+}
+
+.saved__articles {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: auto;
+  height: 24px;
+  color: rgba(26, 27, 34, 0.5);
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0;
+}
+
+.saved__note {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  flex-wrap: wrap;
+  width: auto;
+  height: 92px;
+  font-family: "Roboto slab", sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 46px;
+}
+
+.saved__keywords {
+  width: auto;
+  height: 24px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0;
+}
+
+.saved__span {
+  font-weight: 700;
+  padding-left: 5px;
+}
+
+.saved__cards {
+  background-color: rgba(245, 246, 247, 1);
+  max-height: 100%;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 75px 100px;
+}
+
+@media screen and (min-width: 400px) and (max-width: 800px) {
+  .saved__articles {
+    font-size: 14px;
+  }
+  .saved__section {
+    padding: 0 35px;
+  }
+  .saved__header {
+    gap: 20px;
+  }
+  .saved__note {
+    width: 336px;
+    height: 68px;
+    font-size: 30px;
+    line-height: 34px;
+  }
+  .saved__cards {
+    padding: 25px;
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 399px) {
+  .saved__section {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .saved__header {
+    gap: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 246px;
+    justify-content: flex-start;
+  }
+  .saved__articles {
+    font-size: 12px;
+    line-height: 24px;
+    width: auto;
+  }
+  .saved__note {
+    font-size: 30px;
+    line-height: 34px;
+    width: 288px;
+    padding-bottom: 42px;
+  }
+  .saved__keywords {
+    width: 288px;
+  }
+  .saved__cards {
+    padding: 0;
+    padding-top: 15px;
+    justify-content: center;
+    align-items: center;
+  }
+}

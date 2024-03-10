@@ -1,0 +1,24 @@
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 0;
+  justify-content: center;
+}
+
+@media screen and (min-width: 451px) and (max-width: 900px) {
+  .cards {
+    gap: 5px;
+    justify-content: center;
+    padding-left: 0;
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 450px) {
+  .cards {
+    gap: 15px;
+    padding-left: 0px;
+    justify-content: center;
+  }
+}

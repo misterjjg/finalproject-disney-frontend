@@ -1,0 +1,14 @@
+.success__button {
+  padding-left: 15px;
+  color: rgba(47, 113, 229, 1);
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21.78px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.success__button:hover {
+  opacity: 0.5;
+}
