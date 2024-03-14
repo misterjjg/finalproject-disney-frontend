@@ -10,6 +10,7 @@ const SignInModal = ({
   onSubmit,
   loginValidation,
   setLoginValidation,
+  setLoggedIn,
 }) => {
   const emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
 
@@ -52,12 +53,18 @@ const SignInModal = ({
     setLoginValidation("");
   }, [isOpen]);
 
+  function redirectToPage(pageUrl) {
+    window.location.href = pageUrl;
+  }
+
   function handleSubmit(evt) {
     evt.preventDefault();
     if (isFormValid) {
       console.log({ email, password });
       onSubmit({ email, password });
       console.log(loginValidation);
+      redirectToPage("http://localhost:3000/saved-articles");
+      setLoggedIn(true);
     }
   }
   return (

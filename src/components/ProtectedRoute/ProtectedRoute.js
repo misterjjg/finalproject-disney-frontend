@@ -25,6 +25,7 @@ const ProtectedRoute = ({ component: Component, ...props }) => {
               onSubmit={props.onSubmit}
               loginValidation={props.loginValidation}
               setLoginValidation={props.setLoginValidation}
+              setLoggedIn={props.setLoggedIn}
             />
           </>
         )

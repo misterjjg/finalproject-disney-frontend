@@ -310,6 +310,7 @@ function App() {
             onSubmit={handleLogin}
             loginValidation={loginValidation}
             setLoginValidation={setLoginValidation}
+            setLoggedIn={setLoggedIn}
             component={(props) => (
               <SavedNews
                 {...props}
@@ -335,6 +336,7 @@ function App() {
             onSubmit={handleLogin}
             loginValidation={loginValidation}
             setLoginValidation={setLoginValidation}
+            setLoggedIn={setLoggedIn}
           />
         )}
         {modals.signup && (
