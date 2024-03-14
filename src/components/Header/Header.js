@@ -48,7 +48,7 @@ const Header = ({
         {loggedIn ? (
           <nav className="header__options">
             <p className="header__home">Home</p>
-            <Link to="/savedarticles" className="header__links">
+            <Link to="/saved-articles" className="header__links">
               <p className="header__articles">Saved articles</p>
             </Link>
             <button

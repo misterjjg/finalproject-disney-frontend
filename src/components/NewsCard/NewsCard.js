@@ -39,7 +39,7 @@ const NewsCard = ({
   };
 
   const handleMouseOver = () => {
-    if (location.pathname === "/savedarticles") {
+    if (location.pathname === "/saved-articles") {
       setTrashSrc(trashHover);
       setButtonText("card__button-text");
     } else {
@@ -51,7 +51,7 @@ const NewsCard = ({
   };
 
   const handleMouseOut = () => {
-    if (location.pathname === "/savedarticles") {
+    if (location.pathname === "/saved-articles") {
       setTrashSrc(trashNormal);
       setButtonText("card__button-text_hidden");
     } else {
@@ -99,7 +99,7 @@ const NewsCard = ({
       <div className="card__picture-group">
         <p
           className={
-            location.pathname === "/savedarticles"
+            location.pathname === "/saved-articles"
               ? "card__category"
               : "card__category-none"
           }
@@ -107,7 +107,7 @@ const NewsCard = ({
           {searchKeyword}
         </p>
         <p className={buttonText}>
-          {location.pathname === "/savedarticles"
+          {location.pathname === "/saved-articles"
             ? "Remove from saved"
             : "Sign in to save"}
         </p>
@@ -126,7 +126,7 @@ const NewsCard = ({
         >
           <img
             src={
-              location.pathname === "/savedarticles" ? trashSrc : imageClass()
+              location.pathname === "/saved-articles" ? trashSrc : imageClass()
             }
             className="card__button-image"
             alt="card button"

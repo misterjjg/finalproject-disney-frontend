@@ -25,7 +25,7 @@ const MenuModal = ({
       <Header windowWidth={320} name="menu" isOpen={isOpen} onClose={onClose} />
       <div className="menu">
         {loggedIn && location.pathname === "/" ? (
-          <Link to="/savedarticles" className="menu__links">
+          <Link to="/saved-articles" className="menu__links">
             <p className="menu__home" onClick={onClose}>
               Saved Articles
             </p>

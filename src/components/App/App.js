@@ -250,7 +250,7 @@ function App() {
           <Route exact path="/">
             <div
               className={
-                location.pathname === "/savedarticles"
+                location.pathname === "/saved-articles"
                   ? "app__saved"
                   : "app__home"
               }
