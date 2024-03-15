@@ -4,7 +4,7 @@ import React from "react";
 function About() {
   return (
     <section className="about">
-      <img className="about__image" alt="Author Image" />
+      <img className="about__image" alt="Author" />
       <div className="about__container">
         <h2 className="about__title">About the Author</h2>
         <p className="about__description">
