@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Preloader.css";
+import IsLoadingContext from "../../contexts/IsLoadingContext";
 
-const PreLoader = () => {
+function Preloader() {
+  const { isLoading } = useContext(IsLoadingContext);
   return (
-    <div className="preloader">
-      <div className="preloader__section">
-        <div className="preloader__circle"></div>
-        <p className="preloader__info">Searching for news...</p>
-      </div>
+    <div
+      className={`circle-preloader__container ${
+        !isLoading ? "circle-preloader__hidden" : ""
+      }`}
+    >
+      <div className="circle-preloader"></div>
+      <p className="circle-preloader__description">Searching for news...</p>
     </div>
   );
-};
+}
 
-export default PreLoader;
+export default Preloader;

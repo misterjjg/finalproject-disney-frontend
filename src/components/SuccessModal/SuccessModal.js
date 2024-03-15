@@ -1,32 +1,19 @@
-import "./SuccessModal.css";
-import React from "react";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
-
-const SuccessModal = ({
-  onCreateSuccess,
-  buttonText,
-  onClose,
-  setModals,
-  onCreateSignIn,
-}) => {
+function SuccessModal({ name, onClose, handleClick }) {
   return (
-    <ModalWithForm
-      title="Registration successfully completed!"
-      onCreateSuccess={onCreateSuccess}
-      buttonText={buttonText}
-      onClose={onClose}
-      name="success"
-      setModals={setModals}
-    >
-      <button
-        type="button"
-        onClick={onCreateSignIn}
-        className="success__button"
-      >
-        Sign in
-      </button>
-    </ModalWithForm>
+    <div className={`modal modal__type_${name}`}>
+      <div className="modal__container">
+        <button
+          className="modal__close"
+          type="button"
+          onClick={onClose}
+        ></button>
+        <h2 className="modal__title">Registration Successfully Completed!</h2>
+        <button className="modal__signin-btn" onClick={handleClick}>
+          Sign in
+        </button>
+      </div>
+    </div>
   );
-};
+}
 
 export default SuccessModal;

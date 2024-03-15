@@ -1,137 +1,78 @@
 import React, { useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const SignUpModal = ({
-  onClose,
-  buttonText,
-  isOpen,
-  onCreateSignIn,
-  onCreateSuccess,
-  setModals,
-  onSubmit,
-  signupValidation,
-  setSignupValidation,
-}) => {
-  const [errorMessage, setErrorMessage] = useState("");
-  const emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
-
+function SignupModal({ isOpen, onSignup, handleClose, onAltClick }) {
   const [email, setEmail] = useState("");
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-    const validInputEmail = emailRegex.test(e.target.value);
-    if (!validInputEmail) {
-      setErrorMessage("Invalid email address!");
-    } else {
-      setErrorMessage("");
-    }
-  };
-
   const [password, setPassword] = useState("");
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-  const [name, setName] = useState("");
-  const handleUsernameChange = (e) => {
-    setName(e.target.value);
-  };
+  const [username, setUsername] = useState("");
 
-  const validEmail = emailRegex.test(email);
-  const validPassword = password.length > 0;
-  const validUserName = name.length > 0;
-  const isFormValid = validEmail && validPassword && validUserName;
+  const handleEmailChange = (e) => setEmail(e.target.value);
+  const handlePasswordChange = (e) => setPassword(e.target.value);
+  const handleUsernameChange = (e) => setUsername(e.target.value);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    onSignup({ email, password, username });
+  }
 
   useEffect(() => {
-    setEmail("");
-    setPassword("");
-    setSignupValidation("");
+    if (isOpen) {
+      setEmail("");
+      setPassword("");
+      setUsername("");
+    }
   }, [isOpen]);
 
-  function handleSubmit(evt) {
-    evt.preventDefault();
-    if (isFormValid) {
-      onSubmit({ email, password, name });
-      if (signupValidation === "") {
-        console.log("sign up successful");
-        onCreateSuccess();
-      }
-    }
-  }
   return (
     <ModalWithForm
-      title="Sign up"
-      onClose={onClose}
+      title="Sign Up"
       onSubmit={handleSubmit}
-      isSubmitDisabled={isFormValid}
-      buttonText={buttonText}
-      name="signup"
-      setModals={setModals}
+      handleAltClick={onAltClick}
+      onClose={handleClose}
+      buttonText="Sign up"
+      altButtonText="Sign in"
     >
-      <label className="modal__info">
-        Email
+      <label>
+        <h3 className="modal__label">Email:</h3>
         <input
-          value={email}
           className="modal__input"
+          id="email-input"
           type="email"
-          name="email"
-          minLength="1"
-          maxLength="30"
-          placeholder="Enter email"
+          placeholder="Enter Email"
+          value={email}
           onChange={handleEmailChange}
           required
         />
       </label>
-      <p className={errorMessage === "" ? "modal__error-none" : "modal__error"}>
-        {errorMessage}
-      </p>
-      <label className="modal__info">
-        Password
+      <span className="modal__error" id="email-input-error"></span>
+      <label>
+        <h3 className="modal__label">Password:</h3>
         <input
-          value={password}
           className="modal__input"
-          type="password"
-          name="password"
-          minLength="1"
-          maxLength="30"
-          placeholder="Enter password"
+          id="password-input"
+          type="text"
+          placeholder="Enter Password"
+          value={password}
           onChange={handlePasswordChange}
           required
         />
       </label>
-      <label className="modal__info">
-        Username
+      <span className="modal__error" id="password-input-error"></span>
+      <label>
+        <h3 className="modal__label">Username:</h3>
         <input
-          value={name}
           className="modal__input"
+          id="username-input"
           type="text"
-          name="username"
-          minLength="1"
-          maxLength="30"
-          placeholder="Enter your username"
+          placeholder="Enter your Username"
+          value={username}
           onChange={handleUsernameChange}
           required
         />
       </label>
-      <p
-        className={
-          signupValidation === ""
-            ? "modal__validation-none"
-            : "modal__validation-signup"
-        }
-      >
-        {signupValidation}
-      </p>
-      <div className="modal__bottom modal__bottom-signup">
-        <p className="modal__or">or</p>
-        <button
-          className="modal__button-two"
-          type="button"
-          onClick={onCreateSignIn}
-        >
-          Sign in
-        </button>
-      </div>
+      <span className="modal__error" id="username-input-error"></span>
     </ModalWithForm>
   );
-};
+}
 
-export default SignUpModal;
+export default SignupModal;

@@ -1,53 +1,46 @@
 import "./ModalWithForm.css";
 import React from "react";
 
-const ModalWithForm = ({
-  title,
-  onClose,
-  onSubmit,
-  name,
+function ModalWithForm({
   children,
-  isSubmitDisabled,
+  title,
+  onSubmit,
+  onClose,
   buttonText,
-  setModals,
-}) => {
-  const handleOutsideClick = (e) => {
-    if (e.target.classList.contains("modal__section")) {
-      setModals({ signin: false, signup: false, success: false, menu: false });
-    }
-  };
-
+  handleAltClick,
+  altButtonText,
+  isDisabled,
+}) {
   return (
-    <div className="modal">
-      <div
-        className={`modal__section modal__section_${name}`}
-        onClick={handleOutsideClick}
-      >
-        <div className={`modal__content modal__content_${name}`}>
-          <button
-            className={`modal__button-reset modal__button-reset_${name}`}
-            type="button"
-            onClick={onClose}
-          ></button>
-          <h3 className={`modal__title modal__title_${name}`}>{title}</h3>
-          <form
-            className={`modal__form modal__form_${name}`}
-            onSubmit={onSubmit}
-          >
-            {children}
+    <div className={`modal`}>
+      <div className="modal__container">
+        <h2 className="modal__title">{title}</h2>
+        <button className="modal__close" type="button" onClick={onClose} />
+        <form className="modal__form" onSubmit={onSubmit}>
+          {children}
+          <div className="modal__btn-container">
             <button
-              className={`modal__button-submit modal__button-submit_${name}`}
+              className={`modal__submit-btn ${
+                isDisabled === true ? "modal__submit-btn_disabled" : ""
+              }`}
+              id="submit"
               type="submit"
-              disabled={!isSubmitDisabled}
-              tabIndex="0"
+              disabled={isDisabled}
             >
               {buttonText}
             </button>
-          </form>
-        </div>
+            <button
+              className="modal__alt-btn"
+              type="button"
+              onClick={handleAltClick}
+            >
+              or <span className="modal__alt-text">{altButtonText}</span>
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
-};
+}
 
 export default ModalWithForm;

@@ -1,48 +1,31 @@
 import "./Main.css";
-import { useState } from "react";
+import { useContext } from "react";
+import Header from "../Header/Header";
+import NewsCardList from "../NewsCardList/NewsCardList";
+import About from "../About/About";
+import IsLoadingContext from "../../contexts/IsLoadingContext";
+import Preloader from "../Preloader/Preloader";
 
-const Main = ({ onSearch }) => {
-  const [search, setSearch] = useState("");
-
-  const handleSearch = (e) => {
-    setSearch(e.target.value);
-  };
-
-  const onSubmitSearch = (e) => {
-    e.preventDefault();
-    onSearch(search);
-  };
+function Main({ signinClick, signoutClick }) {
+  const { isLoading } = useContext(IsLoadingContext);
 
   return (
-    <section className="main">
-      <div className="main__title-paragraph">
-        <h1 className="main__title">What's going on in the world?</h1>
-        <p className="main__paragraph">
-          Find the latest news on any topic and save them in your personal
-          account.
-        </p>
-      </div>
-      <div className="main__search-button-input">
-        <form
-          className="main__search-button-input main__form"
-          onSubmit={onSubmitSearch}
-        >
-          <input
-            className="main__search-input-container"
-            placeholder="Enter topic"
-            type="text"
-            name="search"
-            value={search}
-            onChange={handleSearch}
-            required
-          ></input>
-          <button className="main__search-button" type="submit">
-            Search
-          </button>
-        </form>
-      </div>
-    </section>
+    <>
+      <Header onSigninClick={signinClick} onSignoutClick={signoutClick} />
+      <section className="main">
+        <div className="main__results">
+          {isLoading === false ? (
+            <>
+              <NewsCardList />
+            </>
+          ) : (
+            <Preloader />
+          )}
+        </div>
+        <About />
+      </section>
+    </>
   );
-};
+}
 
 export default Main;

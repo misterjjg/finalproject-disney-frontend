@@ -1,133 +1,77 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const SignInModal = ({
-  onClose,
-  buttonText,
-  isOpen,
-  onCreateSignUp,
-  setModals,
-  onSubmit,
-  loginValidation,
-  setLoginValidation,
-  setLoggedIn,
-}) => {
-  const emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
-
-  console.log("signin", isOpen);
-
-  const [errorMessage, setErrorMessage] = useState({
-    email: "",
-    password: "",
-  });
-
+function SigninModal({ isOpen, onSignin, handleClose, onAltClick }) {
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isDisabled, setIsDisabled] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      setEmail("");
+      setPassword("");
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (email === "" || password === "") {
+      setIsDisabled(true);
+    } else {
+      setIsDisabled(false);
+    }
+  }, [email, password]);
+
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
-    const validInputEmail = emailRegex.test(e.target.value);
-    if (!validInputEmail) {
-      setErrorMessage((prevErrors) => ({
-        ...prevErrors,
-        email: "Invalid email address!",
-      }));
-    } else {
-      setErrorMessage((prevErrors) => ({
-        ...prevErrors,
-        email: "",
-      }));
-    }
   };
 
-  const validEmail = emailRegex.test(email);
-
-  const [password, setPassword] = useState("");
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
-  const validPassword = password.length > 0;
-  const isFormValid = validEmail && validPassword;
 
-  useEffect(() => {
-    setEmail("");
-    setPassword("");
-    setLoginValidation("");
-  }, [isOpen]);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSignin({ email, password });
+  };
 
-  function redirectToPage(pageUrl) {
-    window.location.href = pageUrl;
-  }
-
-  function handleSubmit(evt) {
-    evt.preventDefault();
-    if (isFormValid) {
-      console.log({ email, password });
-      onSubmit({ email, password });
-      console.log(loginValidation);
-      redirectToPage("http://localhost:3000/saved-articles");
-      setLoggedIn(true);
-    }
-  }
   return (
     <ModalWithForm
-      title="Sign in"
-      onClose={onClose}
+      title="Sign In"
       onSubmit={handleSubmit}
-      isSubmitDisabled={isFormValid}
-      buttonText={buttonText}
-      name="signin"
-      setModals={setModals}
+      onClose={handleClose}
+      handleAltClick={onAltClick}
+      buttonText="Sign in"
+      altButtonText="Sign up"
+      isDisabled={isDisabled}
     >
-      <label className="modal__info">
-        Email
+      <label>
+        <h3 className="modal__label">Email:</h3>
         <input
-          value={email}
           className="modal__input"
+          id="email-input"
           type="email"
-          name="email"
-          minLength="1"
-          maxLength="30"
-          placeholder="Enter email"
+          placeholder="Enter Email"
+          value={email}
           onChange={handleEmailChange}
           required
         />
       </label>
-      <p className={errorMessage === "" ? "modal__error-none" : "modal__error"}>
-        {errorMessage.email}
-      </p>
-      <label className="modal__info">
-        Password
+      <span className="modal__error" id="email-input-error"></span>
+      <label>
+        <h3 className="modal__label">Password:</h3>
         <input
-          value={password}
           className="modal__input"
-          type="password"
-          name="password"
-          minLength="1"
-          maxLength="30"
-          placeholder="Enter password"
+          id="password-input"
+          type="text"
+          placeholder="Enter Password"
+          value={password}
           onChange={handlePasswordChange}
           required
         />
       </label>
-      <p
-        className={
-          loginValidation === ""
-            ? "modal__validation-none"
-            : "modal__validation-signin"
-        }
-      >
-        {loginValidation}
-      </p>
-      <div className="modal__bottom modal__bottom-signin">
-        <p className="modal__or">or</p>
-        <button
-          className="modal__button-two"
-          type="button"
-          onClick={onCreateSignUp}
-        >
-          Sign up
-        </button>
-      </div>
+      <span className="modal__error" id="password-input-error"></span>
     </ModalWithForm>
   );
-};
-export default SignInModal;
+}
+
+export default SigninModal;

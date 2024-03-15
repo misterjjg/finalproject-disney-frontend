@@ -1,105 +1,255 @@
-.footer__section {
+.footer {
   display: flex;
-  height: 80px;
-  flex-direction: row;
   justify-content: space-between;
-  padding-right: 100px;
-  padding-left: 100px;
+  margin: 0;
+  height: 80px;
+  max-width: 1440px;
+  background-color: #fff;
 }
 
 .footer__copyright {
   display: flex;
   align-items: center;
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
+  color: #b6bcbf;
+  font-family: "Roboto", Arial;
   font-size: 16px;
-  line-height: 22px;
-  color: rgba(182, 188, 191, 1);
-}
-
-.footer__content {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px;
-  font-family: "Roboto", sans-serif;
   font-weight: 400;
+  line-height: 1.2;
+  margin-left: 104px;
+}
+
+.footer__socials {
+  display: flex;
+  align-items: center;
+  margin-right: 104px;
+}
+
+.footer__home {
+  margin-right: 20px;
+  color: var(--main-primary, #1a1b22);
+  text-align: center;
+  font-family: "Roboto", Arial;
   font-size: 18px;
-  line-height: 24px;
-  color: black;
+  font-weight: 400;
+  line-height: 1.2;
+  cursor: pointer;
 }
 
-.footer__names {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 40px;
+.footer__tripleten {
+  margin-left: 20px;
+  margin-right: 20px;
+  color: var(--main-primary, #1a1b22);
+  text-align: center;
+  font-family: "Roboto", Arial;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2;
+  cursor: pointer;
 }
 
-.footer__icons {
-  display: flex;
-  flex-direction: row;
-  gap: 25px;
-  margin: 0;
-  padding: 0;
-}
-
-.footer__icon-item {
-  list-style-type: none;
-}
-
-.footer__icon {
+.footer__github {
+  margin-left: 20px;
+  margin-right: 13px;
+  background: transparent url("../../images/Github.svg") center no-repeat;
   width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.footer__facebook {
+  margin-left: 13px;
+  background: transparent url("../../images/Facebook.svg") center no-repeat;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
 }
 
 .footer__link {
   text-decoration: none;
-}
-.footer__name {
-  display: flex;
-  align-items: center;
-  color: rgba(26, 27, 34, 1);
+  margin: 0;
 }
 
-@media screen and (min-width: 640px) and (max-width: 900px) {
-  .footer__section {
-    height: 64px;
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-  .footer__content {
-    gap: 40px;
-  }
-  .footer__icons {
-    gap: 25px;
-  }
+#home {
+  grid-area: home;
 }
 
-@media screen and (min-width: 300px) and (max-width: 639px) {
-  .footer__section {
-    flex-direction: column-reverse;
-    max-height: 176px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 100px;
-  }
-  .footer__content {
-    height: 88px;
-    align-items: flex-start;
-    padding-bottom: 20px;
-  }
-  .footer__name {
-    margin: 0;
-  }
-  .footer__names {
-    display: flex;
-    flex-direction: column;
-    width: 74px;
-    gap: 15px;
-    margin: 0;
-  }
+#tripleten {
+  grid-area: tripleten;
+}
+
+#github {
+  grid-area: github;
+}
+
+#facebook {
+  grid-area: facebook;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
   .footer__copyright {
-    max-width: 288px;
+    margin-left: 40px;
+  }
+
+  .footer__socials {
+    margin-right: 40px;
+  }
+
+  .footer__home {
+    margin-right: 20px;
+  }
+
+  .footer__tripleten {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .footer__facebook {
+    margin-left: 20px;
+    margin-right: 12px;
+  }
+
+  .footer__github {
+    margin-left: 12px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .footer__copyright {
+    margin-left: 40px;
+  }
+
+  .footer__socials {
+    margin-right: 40px;
+  }
+
+  .footer__home {
+    margin-right: 20px;
+  }
+
+  .footer__tripleten {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .footer__facebook {
+    margin-left: 20px;
+    margin-right: 12px;
+  }
+
+  .footer__github {
+    margin-left: 12px;
+  }
+}
+
+@media screen and (min-width: 680px) and (max-width: 767px) {
+  .footer__copyright {
+    margin-left: 16px;
+  }
+
+  .footer__socials {
+    margin-right: 16px;
+  }
+
+  .footer__home {
+    margin-right: 20px;
+  }
+
+  .footer__tripleten {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .footer__facebook {
+    margin-left: 20px;
+    margin-right: 12px;
+  }
+
+  .footer__github {
+    margin-left: 12px;
+  }
+}
+
+@media screen and (min-width: 580px) and (max-width: 679px) {
+  .footer__copyright {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer__socials {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer__home {
+    margin-right: 10px;
+  }
+
+  .footer__tripleten {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .footer__facebook {
+    margin-left: 10px;
+    margin-right: 6px;
+  }
+
+  .footer__github {
+    margin-left: 6px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 579px) {
+  .footer {
+    display: grid;
+    grid-template-areas:
+      "socials"
+      "copyright";
+    height: 176px;
+    max-width: 579px;
+    justify-content: center;
+  }
+
+  .footer__copyright {
+    width: 288px;
+    grid-area: copyright;
+    margin-left: 16px;
+  }
+
+  .footer__socials {
+    grid-area: socials;
+    display: grid;
+    grid-template-areas:
+      "home github facebook"
+      "tripleten . .";
+    width: 288px;
+    margin-right: 16px;
+    margin-left: 16px;
+  }
+
+  .footer__home {
+    padding: 0;
+    text-align: start;
+    width: 200px;
+    margin: 0;
+  }
+
+  .footer__tripleten {
+    padding: 0;
+    text-align: start;
+    width: 200px;
+    margin: 0;
+  }
+
+  .footer__github {
+    padding: 0;
+    margin: 0;
+    justify-self: center;
+  }
+
+  .footer__facebook {
+    padding: 0;
+    margin-left: 24px;
+    justify-self: center;
   }
 }

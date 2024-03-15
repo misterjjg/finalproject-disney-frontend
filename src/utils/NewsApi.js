@@ -1,47 +1,12 @@
-import { apiURL, baseURL, processResponseServer, apiKey } from "./constants";
+import {
+  apiKey,
+  checkResponse,
+  currentDate,
+  getPreviousWeek,
+} from "./constants";
 
-function searchCards({ userInput, fromDate, toDate, pageSize }) {
+export function getNews(userInput) {
   return fetch(
-    `${apiURL}/everything?q=${userInput}&from=${fromDate}&to=${toDate}&pageSize=${pageSize}&apiKey=${apiKey}`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: apiKey,
-      },
-    }
-  ).then(processResponseServer);
+    `https://nomoreparties.co/news/v2/everything?q=${userInput}&from=${getPreviousWeek()}&to=${currentDate}&sortBy=publishedAt&apiKey=${apiKey}`
+  ).then(checkResponse);
 }
-
-function getCards(token) {
-  return fetch(`${baseURL}/articles`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${token}`,
-    },
-  }).then(processResponseServer);
-}
-
-function saveCard(token, cardData) {
-  console.log({ token });
-  return fetch(`${baseURL}/articles`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify(cardData),
-  }).then(processResponseServer);
-}
-
-function deleteCard(id, token) {
-  return fetch(`${baseURL}/articles/${id}`, {
-    method: "DELETE",
-    headers: {
-      authorization: `Bearer ${token}`,
-    },
-  }).then(processResponseServer);
-}
-
-export { searchCards, getCards, saveCard, deleteCard };
