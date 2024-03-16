@@ -13,14 +13,28 @@
 .modal__container {
   position: relative;
   background-color: #fff;
+  border-radius: 16px;
+}
+
+.modal__container-signin {
   width: 430px;
   height: 380px;
-  border-radius: 16px;
+}
+
+.modal__container-signup {
+  width: 430px;
+  height: 457px;
+}
+
+.modal__container-success {
+  width: 430px;
+  height: 182px;
 }
 
 .modal__form {
   width: 358px;
   margin-left: 36px;
+  margin-right: 36px;
 }
 
 .modal__title {
@@ -59,14 +73,14 @@
 }
 
 .modal__label:last-of-type {
-  margin-top: 31px;
+  margin-top: 15px;
 }
 
 .modal__input {
   width: 100%;
   padding: 0;
   border: none;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   color: #000;
   font-family: "Inter", Arial;
   font-size: 14px;
@@ -133,13 +147,48 @@
   font-size: 18px;
   font-weight: 400;
   line-height: 1.2;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  margin-left: 36px;
+  padding: 0;
+}
+
+.modal__error {
+  color: #f00;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 3px;
+}
+
+.modal__error-unavailable {
+  color: #f00;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 17px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .modal__container {
     padding: 0;
+  }
+
+  .modal__container-signin {
     max-width: 430px;
-    height: 380px;
+  }
+
+  .modal__container-signup {
+    max-width: 430px;
   }
 
   .modal__title {
@@ -167,8 +216,14 @@
 @media screen and (min-width: 481px) and (max-width: 767px) {
   .modal__container {
     padding: 0;
+  }
+
+  .modal__container-signin {
     max-width: 430px;
-    height: 380px;
+  }
+
+  .modal__container-signup {
+    max-width: 430px;
   }
 
   .modal__title {
@@ -200,9 +255,23 @@
 
   .modal__container {
     padding: 0;
+    top: 56px;
+  }
+
+  .modal__container-signin {
     max-width: 320px;
     height: 560px;
-    top: 56px;
+  }
+
+  .modal__container-signup {
+    max-width: 320px;
+    height: 560px;
+  }
+
+  .modal__container-success {
+    max-width: 320px;
+    height: 560px;
+    align-items: center;
   }
 
   .modal__form {
@@ -211,7 +280,6 @@
   }
 
   .modal__title {
-    width: 158px;
     margin: 16px 0 18px 17px;
   }
 
@@ -228,5 +296,9 @@
 
   .modal__submit-btn {
     width: 288px;
+  }
+
+  .modal__signin-btn {
+    margin-left: 18px;
   }
 }

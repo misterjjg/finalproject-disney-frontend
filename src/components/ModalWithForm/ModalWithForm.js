@@ -1,7 +1,5 @@
-import "./ModalWithForm.css";
-import React from "react";
-
 function ModalWithForm({
+  name,
   children,
   title,
   onSubmit,
@@ -12,8 +10,8 @@ function ModalWithForm({
   isDisabled,
 }) {
   return (
-    <div className={`modal`}>
-      <div className="modal__container">
+    <div className="modal">
+      <div className={`modal__container modal__container-${name}`}>
         <h2 className="modal__title">{title}</h2>
         <button className="modal__close" type="button" onClick={onClose} />
         <form className="modal__form" onSubmit={onSubmit}>
