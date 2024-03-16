@@ -86,11 +86,11 @@ function App() {
     handleCloseModal();
   }
 
-  function handleSignup() {
-    // if(!existingUser) {
-    //  setCurrentUser()
-    // }
-  }
+  // function handleSignup() {
+  //   // if(!existingUser) {
+  //   //  setCurrentUser()
+  //   // }
+  // }
 
   function handleSignout() {
     setCurrentUser("");
