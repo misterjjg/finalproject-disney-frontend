@@ -38,7 +38,7 @@
   margin-bottom: 80px;
 }
 
-.newscard__item {
+.newscard {
   position: relative;
   width: 400px;
   height: 576px;
@@ -254,7 +254,7 @@
     margin-bottom: 40px;
   }
 
-  .newscard__item {
+  .newscard {
     width: 334px;
     height: 500px;
   }
@@ -315,7 +315,7 @@
     margin-bottom: 40px;
   }
 
-  .newscard__item {
+  .newscard {
     width: 300px;
     height: 470px;
   }
@@ -378,7 +378,7 @@
     margin-bottom: 40px;
   }
 
-  .newscard__item {
+  .newscard {
     width: 300px;
     height: 470px;
   }
@@ -441,7 +441,7 @@
     margin-bottom: 40px;
   }
 
-  .newscard__item {
+  .newscard {
     width: 224px;
     height: 420px;
   }
@@ -505,7 +505,7 @@
     margin-bottom: 40px;
   }
 
-  .newscard__item {
+  .newscard {
     width: 224px;
     height: 420px;
   }
@@ -563,7 +563,7 @@
     justify-content: center;
   }
 
-  .newscard__item {
+  .newscard {
     width: 224px;
     height: 420px;
   }
@@ -636,7 +636,7 @@
     margin-bottom: 40px;
   }
 
-  .newscard__item {
+  .newscard {
     width: 224px;
     height: 420px;
   }
@@ -700,7 +700,7 @@
     margin-bottom: 40px;
   }
 
-  .newscard__item {
+  .newscard {
     width: 224px;
     height: 420px;
   }
@@ -757,7 +757,7 @@
     justify-content: center;
   }
 
-  .newscard__item {
+  .newscard {
     width: 224px;
     height: 420px;
   }
@@ -823,7 +823,7 @@
     justify-content: center;
   }
 
-  .newscard__item {
+  .newscard {
     width: 288px;
     height: 440px;
   }
@@ -884,12 +884,16 @@
     margin-left: 16px;
   }
 
+  .card__show-more {
+    margin-bottom: 25px;
+  }
+
   .card__container {
     margin: 58px 16px 16px;
     justify-content: center;
   }
 
-  .newscard__item {
+  .newscard {
     width: 288px;
     height: 440px;
   }

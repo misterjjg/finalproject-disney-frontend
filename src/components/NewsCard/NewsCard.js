@@ -21,7 +21,7 @@ function NewsCard({ newsItem }) {
   };
 
   return (
-    <div className="newscard__item">
+    <div className="newscard">
       <img
         src={newsItem.urlToImage}
         alt={newsItem.url}
