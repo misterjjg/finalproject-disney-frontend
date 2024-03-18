@@ -21,31 +21,33 @@ function NewsCard({ newsItem }) {
   };
 
   return (
-    <div className="card__item">
+    <div className="newscard__item">
       <img
         src={newsItem.urlToImage}
         alt={newsItem.url}
-        className="card__image"
+        className="newscard__image"
       />
-      <div className="card__description-container">
-        <h4 className="card__date">{publishedAt}</h4>
-        <h3 className="card__title">{newsItem.title}</h3>
-        <p className="card__description">{newsItem.description}</p>
-        <h4 className="card__publisher">
+      <div className="newscard__description-container">
+        <h4 className="newscard__date">{publishedAt}</h4>
+        <h3 className="newscard__title">{newsItem.title}</h3>
+        <p className="newscard__description">{newsItem.description}</p>
+        <h4 className="newscard__publisher">
           {newsItem.source.name || newsItem.source}
         </h4>
       </div>
-      <div className="card__save-btn-container">
+      <div className="newscard__save-btn-container">
         {currentPage === "/saved-news" ? (
           <button
-            className="card__delete"
+            className="newscard__delete"
             type="button"
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
           ></button>
         ) : (
           <button
-            className={`card__save ${isSaved ? "card__save_active" : ""}`}
+            className={`newscard__save ${
+              isSaved ? "newscard__save_active" : ""
+            }`}
             type="button"
             onClick={handleSaveCards}
             onMouseEnter={() => setHover(true)}
@@ -54,18 +56,18 @@ function NewsCard({ newsItem }) {
         )}
       </div>
       {hover && currentPage === "/saved-news" ? (
-        <div className="card__warning_remove">
-          <p className="card__warning">Remove from saved</p>
+        <div className="newscard__warning_remove">
+          <p className="newscard__warning">Remove from saved</p>
         </div>
       ) : hover && !isLoggedIn && currentPage === "/" ? (
-        <div className="card__warning_signin">
-          <p className="card__warning">Sign in to save articles</p>
+        <div className="newscard__warning_signin">
+          <p className="newscard__warning">Sign in to save articles</p>
         </div>
       ) : (
         ""
       )}
       {currentPage === "/saved-news" ? (
-        <div className="card__keyword">{newsItem.keyword}</div>
+        <div className="newscard__keyword">{newsItem.keyword}</div>
       ) : (
         ""
       )}

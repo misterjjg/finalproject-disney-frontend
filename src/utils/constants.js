@@ -84,4 +84,4 @@ export const checkResponse = (res) => {
   return Promise.reject(`Error: ${res.error}`);
 };
 
-export const baseUrl = "http://localhost:3001";
+export const baseUrl = "http://localhost:3000";

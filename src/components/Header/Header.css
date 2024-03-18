@@ -1,8 +1,11 @@
 .header {
   max-height: 576px;
-  background: transparent url("../../images/TopBackground.svg") center no-repeat;
+  background: transparent url("../../images/TopBackground.svg");
+  background-size: cover;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  border-color: 20px solid red;
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1439px) {

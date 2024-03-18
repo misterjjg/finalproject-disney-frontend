@@ -33,7 +33,7 @@ function Navigation({ onSigninClick, onSignoutClick }) {
             </div>
             <div className="nav__saved-container">
               <NavLink to="/saved-news" className="nav__link">
-                <button className="nav__saved">Saved Articles</button>
+                <button className="nav__saved">Saved articles</button>
               </NavLink>
             </div>
             <button className="nav__profile-signed-in" onClick={onSignoutClick}>

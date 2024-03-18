@@ -3,8 +3,8 @@
   justify-content: space-between;
   margin: 0;
   height: 80px;
-  max-width: 1440px;
   background-color: #fff;
+  width: 100%;
 }
 
 .footer__copyright {
