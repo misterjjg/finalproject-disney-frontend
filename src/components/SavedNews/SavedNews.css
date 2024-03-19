@@ -1,3 +1,7 @@
+* {
+  outline: thin solid red;
+}
+
 .saved-news {
   display: flex;
   flex-direction: column;
