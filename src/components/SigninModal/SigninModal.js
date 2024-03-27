@@ -52,7 +52,7 @@ function SigninModal({ isOpen, onSignin, handleClose, onAltClick }) {
           type="password"
           placeholder="Enter Password"
           name="password"
-          value={valuespassword}
+          value={values.password}
           onChange={handleChange}
           required
         />

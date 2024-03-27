@@ -9,7 +9,7 @@ import SearchResultContext from "../../contexts/SearchResultsContext.js";
 
 function NewsCard({ newsItem }) {
   const { currentPage } = useContext(CurrentPageContext);
-  const { searchResult, setSearchResult } = useContext(SearchResultContext);
+  const { searchResults, setSearchResults } = useContext(SearchResultContext);
   const { savedCards, setSavedCards } = useContext(SavedCardsContext);
   const { keyword } = useContext(KeywordsContext);
   const { isLoggedIn } = useContext(CurrentUserContext);
