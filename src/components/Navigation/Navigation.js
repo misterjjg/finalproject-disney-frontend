@@ -46,7 +46,7 @@ function Navigation({ onSigninClick, onSignoutClick }) {
               type="button"
               onClick={onSignoutClick}
             >
-              <h2 className="nav__username">{currentUser.name}</h2>
+              <h2 className="nav__username">{currentUser?.name}</h2>
               <img src={logout} className="nav__logout" alt="logout" />
             </button>
           </div>
@@ -82,7 +82,7 @@ function Navigation({ onSigninClick, onSignoutClick }) {
               type="button"
               onClick={onSignoutClick}
             >
-              <h2 className="saved-news__nav-username">{currentUser.name}</h2>
+              <h2 className="saved-news__nav-username">{currentUser?.name}</h2>
               <img
                 src={logoutDark}
                 className="saved-news__nav-logout"

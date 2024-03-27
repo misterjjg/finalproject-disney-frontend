@@ -5,14 +5,12 @@ import SavedCardsContext from "../../contexts/SavedCardsContext.js";
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 import Api from "../../utils/MainApi.js";
 import KeywordsContext from "../../contexts/KeywordsContext.js";
-import SearchResultContext from "../../contexts/SearchResultsContext.js";
 
 function NewsCard({ newsItem }) {
   const { currentPage } = useContext(CurrentPageContext);
   const { savedCards, setSavedCards } = useContext(SavedCardsContext);
   const { keyword } = useContext(KeywordsContext);
   const { isLoggedIn } = useContext(CurrentUserContext);
-  const { searchResult } = useContext(SearchResultContext);
   const [hover, setHover] = useState(false);
   const isSaved = savedCards.some((card) => card.link === newsItem.url);
   const cardSavedButtonClassname = `newscard__save ${

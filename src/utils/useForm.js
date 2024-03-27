@@ -20,7 +20,7 @@ export default function useFormWithValidation(defaults) {
       setErrors(newErrors);
       setIsValid(newIsValid);
     },
-    [setValues, setErrors, setIsValid]
+    [setValues, setErrors, setIsValid, defaults]
   );
 
   return {

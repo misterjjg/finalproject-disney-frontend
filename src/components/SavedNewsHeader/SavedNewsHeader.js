@@ -8,7 +8,7 @@ function SavedNewsHeader({ onSignoutClick }) {
   const { currentUser } = useContext(CurrentUserContext);
 
   const userArticles = savedCards.filter(
-    (article) => article.owner === currentUser._id
+    (article) => article.owner === currentUser?._id
   );
   const keywordsArray = userArticles.map((card) => card.keyword);
 
@@ -58,7 +58,7 @@ function SavedNewsHeader({ onSignoutClick }) {
       <Navigation onSignoutClick={onSignoutClick} />
       <h2 className="saved-news__title">Saved Articles</h2>
       <h3 className="saved-news__article-count">
-        {currentUser.name}, you have {userArticles.length} saved articles
+        {currentUser?.name}, you have {userArticles.length} saved articles
       </h3>
       <p className="saved-news__keywords">
         By keywords:{" "}

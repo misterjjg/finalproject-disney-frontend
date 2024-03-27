@@ -11,7 +11,7 @@ function SavedNewsCardList() {
     <section className="saved-news__card">
       <div className="saved-news__card-container">
         {savedCards.map((news) => {
-          if (news.owner === currentUser._id) {
+          if (news.owner === currentUser?._id) {
             return <NewsCard key={news.link} newsItem={news} />;
           }
         })}

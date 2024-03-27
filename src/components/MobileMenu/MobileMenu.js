@@ -35,7 +35,7 @@ function MobileMenu({ onClose, onSigninClick, onSignoutClick }) {
                 type="button"
                 onClick={onSignoutClick}
               >
-                <h2 className="mobile__username">{currentUser.name}</h2>
+                <h2 className="mobile__username">{currentUser?.name}</h2>
                 <img className="mobile__logout" src={logout} alt="logout" />
               </button>
             </li>
@@ -70,7 +70,7 @@ function MobileMenu({ onClose, onSigninClick, onSignoutClick }) {
                 type="button"
                 onClick={onSignoutClick}
               >
-                <h2 className="mobile__username">{currentUser.name}</h2>
+                <h2 className="mobile__username">{currentUser?.name}</h2>
                 <img className="mobile__logout" src={logout} alt="logout" />
               </button>
             </li>
