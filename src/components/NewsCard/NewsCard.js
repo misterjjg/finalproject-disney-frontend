@@ -9,11 +9,12 @@ import KeywordsContext from "../../contexts/KeywordsContext.js";
 function NewsCard({ newsItem }) {
   const { currentPage } = useContext(CurrentPageContext);
   const { savedCards, setSavedCards } = useContext(SavedCardsContext);
+  const { keyword } = useContext(KeywordsContext);
   const { isLoggedIn } = useContext(CurrentUserContext);
   const [hover, setHover] = useState(false);
   const isSaved = savedCards.some((card) => card.link === newsItem.url);
   const cardSavedButtonClassname = `newscard__save ${
-    isSaved ? "newscard__save_active" : "card__save_inactive"
+    isSaved ? "newscard__save_active" : "newscard__save_inactive"
   }`;
   const publishedAt = new Date(
     newsItem.publishedAt || newsItem.date
