@@ -4,27 +4,28 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 function SignupModal({ isOpen, onSignup, handleClose, onAltClick }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
-  const handleUsernameChange = (e) => setUsername(e.target.value);
+  const handleNameChange = (e) => setName(e.target.value);
 
   function handleSubmit(e) {
     e.preventDefault();
-    onSignup({ email, password, username });
+    onSignup({ email, password, name });
   }
 
   useEffect(() => {
     if (isOpen) {
       setEmail("");
       setPassword("");
-      setUsername("");
+      setName("");
     }
   }, [isOpen]);
 
   return (
     <ModalWithForm
+      name="signup"
       title="Sign Up"
       onSubmit={handleSubmit}
       handleAltClick={onAltClick}
@@ -65,8 +66,8 @@ function SignupModal({ isOpen, onSignup, handleClose, onAltClick }) {
           id="username-input"
           type="text"
           placeholder="Enter your Username"
-          value={username}
-          onChange={handleUsernameChange}
+          value={name}
+          onChange={handleNameChange}
           required
         />
       </label>

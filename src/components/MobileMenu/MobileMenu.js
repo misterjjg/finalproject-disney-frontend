@@ -32,9 +32,10 @@ function MobileMenu({ onClose, onSigninClick, onSignoutClick }) {
             <li className="mobile__item">
               <button
                 className="mobile__profile-signed-in"
+                type="button"
                 onClick={onSignoutClick}
               >
-                <h2 className="mobile__username">{currentUser}</h2>
+                <h2 className="mobile__username">{currentUser.name}</h2>
                 <img className="mobile__logout" src={logout} alt="logout" />
               </button>
             </li>
@@ -51,20 +52,25 @@ function MobileMenu({ onClose, onSigninClick, onSignoutClick }) {
           <ul className="mobile__menu">
             <li className="mobile__item">
               <NavLink to="/" className="mobile__link">
-                <button className="mobile__home">Home</button>
+                <button className="mobile__home" type="button">
+                  Home
+                </button>
               </NavLink>
             </li>
             <li className="mobile__item">
               <NavLink to="/saved-news" className="mobile__link">
-                <button className="mobile__saved">Saved Articles</button>
+                <button className="mobile__saved" type="button">
+                  Saved Articles
+                </button>
               </NavLink>
             </li>
             <li className="mobile__item">
               <button
                 className="mobile__profile-signed-in"
+                type="button"
                 onClick={onSignoutClick}
               >
-                <h2 className="mobile__username">Josh</h2>
+                <h2 className="mobile__username">{currentUser.name}</h2>
                 <img className="mobile__logout" src={logout} alt="logout" />
               </button>
             </li>

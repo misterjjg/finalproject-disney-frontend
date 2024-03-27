@@ -1,7 +1,7 @@
 import { baseUrl, checkResponse } from "./constants";
 
 function getSavedArticles(token) {
-  return fetch(`${baseUrl}/articles`, {
+  return fetch(`${baseUrl}/articles/`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -10,8 +10,8 @@ function getSavedArticles(token) {
   }).then(checkResponse);
 }
 
-function saveNews(card, token) {
-  return fetch(`${baseUrl}/articles`, {
+function saveNews(card, token, keyword) {
+  return fetch(`${baseUrl}/articles/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -19,25 +19,25 @@ function saveNews(card, token) {
     },
     body: JSON.stringify({
       title: card.title,
-      description: card.description,
-      url: card.url,
-      publishedAt: card.publishedAt,
+      text: card.description,
+      link: card.url,
+      date: card.publishedAt,
       source: card.source.name,
       image: card.urlToImage,
-      keywords: card.keywords,
-      save: card.save,
+      keyword: keyword,
     }),
   }).then(checkResponse);
 }
 
-function deleteSave(card, token) {
-  return fetch(`${baseUrl}/articles/saved`, {
-    method: "PATCH",
+function deleteSave(articleId, token) {
+  return fetch(`${baseUrl}/articles/${articleId}`, {
+    method: "DELETE",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-  });
+    body: JSON.stringify({ articleId }),
+  }).then(checkResponse);
 }
 
 const Api = {

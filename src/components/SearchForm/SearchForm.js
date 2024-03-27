@@ -1,21 +1,19 @@
 import React, { useContext, useState } from "react";
-
 import NewsSearchContext from "../../contexts/NewsSearchContext";
 import HasSearchedContext from "../../contexts/HasSearchedContext";
+import KeywordsContext from "../../contexts/KeywordsContext";
 
 function SearchForm() {
   const { handleNewsSearch } = useContext(NewsSearchContext);
   const { setHasSearched } = useContext(HasSearchedContext);
+  const { setKeyword } = useContext(KeywordsContext);
   const [searchInput, setSearchInput] = useState("");
-  const [keywords, setKeywords] = useState([]);
-
-  console.log(keywords);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     handleNewsSearch(searchInput);
     setHasSearched(true);
-    setKeywords(searchInput);
+    setKeyword(searchInput);
     setSearchInput("");
   };
 

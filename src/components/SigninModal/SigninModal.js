@@ -36,6 +36,7 @@ function SigninModal({ isOpen, onSignin, handleClose, onAltClick }) {
 
   return (
     <ModalWithForm
+      name="signin"
       title="Sign In"
       onSubmit={handleSubmit}
       onClose={handleClose}

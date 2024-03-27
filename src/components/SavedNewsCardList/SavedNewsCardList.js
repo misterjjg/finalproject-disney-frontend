@@ -1,12 +1,15 @@
+import { useContext } from "react";
 import NewsCard from "../NewsCard/NewsCard";
-import { newsOptions } from "../../utils/constants";
+import SavedCardsContext from "../../contexts/SavedCardsContext";
 
 function SavedNewsCardList() {
+  const { savedCards } = useContext(SavedCardsContext);
+
   return (
     <section className="saved-news__card">
       <div className="saved-news__card-container">
-        {newsOptions.map((news) => {
-          return <NewsCard key={news.url} newsItem={news} />;
+        {savedCards.map((news) => {
+          return <NewsCard key={news.link} newsItem={news} />;
         })}
       </div>
     </section>
