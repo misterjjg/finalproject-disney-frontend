@@ -8,9 +8,7 @@ export function login({ email, password }) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
-  })
-    .then(checkResponse)
-    .catch((e) => console.error(`Error ${e} in auth login`));
+  }).then(checkResponse);
 }
 
 export function signup({ email, password, name }) {
@@ -21,9 +19,7 @@ export function signup({ email, password, name }) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password, name }),
-  })
-    .then(checkResponse)
-    .catch((e) => console.error(`Error ${e} in auth signup`));
+  }).then(checkResponse);
 }
 
 export function validateToken(token) {
@@ -37,6 +33,5 @@ export function validateToken(token) {
     .then(checkResponse)
     .then((data) => {
       return data;
-    })
-    .catch((e) => `Error ${e} in auth validateToken`);
+    });
 }

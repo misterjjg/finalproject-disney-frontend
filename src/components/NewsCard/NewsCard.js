@@ -5,9 +5,11 @@ import SavedCardsContext from "../../contexts/SavedCardsContext.js";
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 import Api from "../../utils/MainApi.js";
 import KeywordsContext from "../../contexts/KeywordsContext.js";
+import SearchResultContext from "../../contexts/SearchResultsContext.js";
 
 function NewsCard({ newsItem }) {
   const { currentPage } = useContext(CurrentPageContext);
+  const { searchResult, setSearchResult } = useContext(SearchResultContext);
   const { savedCards, setSavedCards } = useContext(SavedCardsContext);
   const { keyword } = useContext(KeywordsContext);
   const { isLoggedIn } = useContext(CurrentUserContext);
@@ -27,8 +29,30 @@ function NewsCard({ newsItem }) {
   const handleSaveCard = () => {
     const token = localStorage.getItem("jwt");
     if (!savedCards.some((card) => card.link === newsItem.url)) {
-      Api.saveNews(newsItem, token, keyword).then((data) => {
-        setSavedCards([data.data, ...savedCards]);
+      Api.saveNews(newsItem, token, keyword)
+        .then((data) => {
+          setSavedCards([data.data, ...savedCards]);
+          const savedId = data.data._id;
+          const newItem = { ...newsItem, _id: savedId };
+          console.log(newItem);
+          const newSearchResults = searchResults.map((article) =>
+            article.url === newsItem.url ? newItem : article
+          );
+          setSearchResults(newSearchResults);
+        })
+        .catch((err) => console.error(err));
+    } else if (savedCards.some((card) => card._id === newsItem._id)) {
+      Api.deleteSave(newsItem._id, token).then(() => {
+        const updateNewsArticles = savedCards.filter(
+          (article) => article._id !== newsItem._id
+        );
+        setSavedCards(updateNewsArticles);
+
+        const newItem = { ...newsItem, _id: "" };
+        const unsaveSearchResults = searchResults.map((article) =>
+          article.url === newsItem.url ? newItem : article
+        );
+        setSearchResults(unsaveSearchResults);
       });
     }
   };
@@ -36,9 +60,9 @@ function NewsCard({ newsItem }) {
   const handleDeleteCard = () => {
     const token = localStorage.getItem("jwt");
     Api.deleteSave(newsItem._id, token).then(() => {
-      const updateNewsArticles = savedCards.filter((article) => {
-        return article._id !== newsItem._id;
-      });
+      const updateNewsArticles = savedCards.filter(
+        (article) => article._id !== newsItem._id
+      );
       setSavedCards(updateNewsArticles);
     });
   };

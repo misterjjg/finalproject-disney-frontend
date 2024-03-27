@@ -70,11 +70,13 @@ function App() {
   const handleNewsSearch = (input) => {
     setIsLoading(true);
     const searchNews = getNews(input);
-    searchNews.then((data) => {
-      setHasSearched(true);
-      setSearchResults(data.articles);
-      setIsLoading(false);
-    });
+    searchNews
+      .then((data) => {
+        setHasSearched(true);
+        setSearchResults(data.articles);
+        setIsLoading(false);
+      })
+      .catch((err) => console.error(err));
   };
 
   const handleSuccessModalClick = () => {
@@ -194,7 +196,9 @@ function App() {
         <CurrentUserContext.Provider value={{ currentUser, isLoggedIn }}>
           <NewsSearchContext.Provider value={{ handleNewsSearch }}>
             <IsLoadingContext.Provider value={{ isLoading, setIsLoading }}>
-              <SearchResultContext.Provider value={{ searchResults }}>
+              <SearchResultContext.Provider
+                value={{ searchResults, setSearchResults }}
+              >
                 <HasSearchedContext.Provider
                   value={{ hasSearched, setHasSearched }}
                 >
