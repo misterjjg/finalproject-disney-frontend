@@ -6,6 +6,19 @@ function SigninModal({ isOpen, onSignin, handleClose, onAltClick }) {
   const [password, setPassword] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
 
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSignin({ email, password });
+  };
+
   useEffect(() => {
     if (isOpen) {
       setEmail("");
@@ -20,19 +33,6 @@ function SigninModal({ isOpen, onSignin, handleClose, onAltClick }) {
       setIsDisabled(false);
     }
   }, [email, password]);
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSignin({ email, password });
-  };
 
   return (
     <ModalWithForm
@@ -71,6 +71,7 @@ function SigninModal({ isOpen, onSignin, handleClose, onAltClick }) {
         />
       </label>
       <span className="modal__error" id="password-input-error"></span>
+      <span className="modal__error" id="incorrect-info-error"></span>
     </ModalWithForm>
   );
 }

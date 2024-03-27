@@ -162,6 +162,14 @@
   margin: 0 0 56px 104px;
 }
 
+.saved-news__keywords_bold {
+  color: #1a1b22;
+  font-family: "Roboto", Arial;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
 .saved-news__card {
   display: flex;
   flex-direction: column;

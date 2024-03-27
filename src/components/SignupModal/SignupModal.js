@@ -5,6 +5,7 @@ function SignupModal({ isOpen, onSignup, handleClose, onAltClick }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
@@ -23,6 +24,14 @@ function SignupModal({ isOpen, onSignup, handleClose, onAltClick }) {
     }
   }, [isOpen]);
 
+  useEffect(() => {
+    if (email === "" || password === "" || name === "") {
+      setIsDisabled(true);
+    } else {
+      setIsDisabled(false);
+    }
+  }, [email, password, name]);
+
   return (
     <ModalWithForm
       name="signup"
@@ -32,6 +41,7 @@ function SignupModal({ isOpen, onSignup, handleClose, onAltClick }) {
       onClose={handleClose}
       buttonText="Sign up"
       altButtonText="Sign in"
+      isDisabled={isDisabled}
     >
       <label>
         <h3 className="modal__label">Email:</h3>
@@ -72,6 +82,7 @@ function SignupModal({ isOpen, onSignup, handleClose, onAltClick }) {
         />
       </label>
       <span className="modal__error" id="username-input-error"></span>
+      <span className="modal__error" id="email-unavailable-error"></span>
     </ModalWithForm>
   );
 }

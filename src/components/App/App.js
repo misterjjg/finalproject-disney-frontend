@@ -29,7 +29,7 @@ import MobileContext from "../../contexts/MobileContext";
 // API
 import { getNews } from "../../utils/NewsApi";
 import * as auth from "../../utils/auth";
-import Api from "../../utils/api";
+import Api from "../../utils/MainApi";
 import KeywordsContext from "../../contexts/KeywordsContext";
 
 function App() {
@@ -101,6 +101,9 @@ function App() {
         setLoggedIn(true);
         setCurrentUser(data);
         handleCloseModal();
+      })
+      .catch((err) => {
+        console.error(`Error ${err} in signing in user`);
       });
   }
 
@@ -190,7 +193,12 @@ function App() {
                   <SavedCardsContext.Provider
                     value={{ savedCards, setSavedCards }}
                   >
-                    <KeywordsContext.Provider value={{ keyword, setKeyword }}>
+                    <KeywordsContext.Provider
+                      value={{
+                        keyword,
+                        setKeyword,
+                      }}
+                    >
                       <MobileContext.Provider
                         value={{
                           mobileMenuOpen,
@@ -204,7 +212,7 @@ function App() {
                           />
                         </Route>
                         <ProtectedRoute path="/saved-news">
-                          <SavedNews />
+                          <SavedNews onSignoutClick={handleSignout} />
                         </ProtectedRoute>
                         <Footer />
                         {activeModal === "signin" && (
