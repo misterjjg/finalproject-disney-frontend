@@ -84,4 +84,7 @@ export const checkResponse = (res) => {
   return Promise.reject(`Error: ${res.error}`);
 };
 
-export const baseUrl = "http://localhost:3000";
+export const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://api.newsexplorerjg.happyforever.com"
+    : "http://localhost:3000";

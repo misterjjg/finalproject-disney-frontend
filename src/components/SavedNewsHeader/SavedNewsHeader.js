@@ -1,7 +1,7 @@
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import SavedCardsContext from "../../contexts/SavedCardsContext";
 import Navigation from "../Navigation/Navigation";
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 
 function SavedNewsHeader({ onSignoutClick }) {
   const { savedCards } = useContext(SavedCardsContext);
@@ -27,8 +27,6 @@ function SavedNewsHeader({ onSignoutClick }) {
           count[keyword] = 1;
         }
       }
-
-      console.log(count);
 
       const savedKeywords = [];
       for (const item in count) {

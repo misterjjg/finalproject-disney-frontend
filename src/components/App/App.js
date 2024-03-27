@@ -45,6 +45,7 @@ function App() {
   const [token, setToken] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const [serverErrors, setServerErrors] = useState({});
 
   const handleOpenModal = (modal) => {
     setActiveModal(modal);
@@ -52,6 +53,7 @@ function App() {
 
   const handleCloseModal = () => {
     setActiveModal("");
+    setServerErrors({});
   };
 
   const handleAltClick = () => {
@@ -114,11 +116,17 @@ function App() {
         if (res) {
           handleCloseModal();
           handleSuccessModal();
+          setServerErrors({});
         } else {
-          console.log("Something went wrong");
+          setServerErrors({
+            ...serverErrors,
+            conflictError: "This email is not available",
+          });
         }
       })
-      .catch((e) => console.error(`Error signing user up. Error: ${e}`));
+      .catch((e) => {
+        console.error(`Error signing user up. Error: ${e}`);
+      });
   }
 
   function handleSignout() {
@@ -229,6 +237,7 @@ function App() {
                             onSignup={handleSignup}
                             handleClose={handleCloseModal}
                             onAltClick={handleAltClick}
+                            serverErrors={serverErrors}
                           />
                         )}
                         {activeModal === "success" && (
