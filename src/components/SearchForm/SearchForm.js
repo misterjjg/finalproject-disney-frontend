@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import NewsSearchContext from "../../contexts/NewsSearchContext";
 import HasSearchedContext from "../../contexts/HasSearchedContext";
 import KeywordsContext from "../../contexts/KeywordsContext";
-import { useForm } from "../hooks/useForm";
+import { useForm } from "../../hooks/useForm";
 
 function SearchForm() {
   const { handleNewsSearch } = useContext(NewsSearchContext);
