@@ -67,6 +67,10 @@ function App() {
     }
   };
 
+  const openSignupModal = () => {
+    setActiveModal("signup");
+  };
+
   const handleNewsSearch = (input) => {
     setIsLoading(true);
     const searchNews = getNews(input);
@@ -221,6 +225,7 @@ function App() {
                           <Main
                             signinClick={handleSigninModal}
                             signoutClick={handleSignout}
+                            signupClick={openSignupModal}
                           />
                         </Route>
                         <ProtectedRoute path="/saved-news">

@@ -7,7 +7,7 @@ import Api from "../../utils/MainApi.js";
 import KeywordsContext from "../../contexts/KeywordsContext.js";
 import SearchResultContext from "../../contexts/SearchResultsContext.js";
 
-function NewsCard({ newsItem }) {
+function NewsCard({ newsItem, openSignupModal }) {
   const { currentPage } = useContext(CurrentPageContext);
   const { searchResults, setSearchResults } = useContext(SearchResultContext);
   const { savedCards, setSavedCards } = useContext(SavedCardsContext);
@@ -27,6 +27,10 @@ function NewsCard({ newsItem }) {
   });
 
   const handleSaveCard = () => {
+    if (!isLoggedIn) {
+      openSignupModal();
+      return;
+    }
     const token = localStorage.getItem("jwt");
     if (!savedCards.some((card) => card.link === newsItem.url)) {
       Api.saveNews(newsItem, token, keyword)
