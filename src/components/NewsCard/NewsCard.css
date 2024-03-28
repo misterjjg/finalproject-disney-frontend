@@ -138,6 +138,10 @@
   background: #fff url("../../images/Bookmark-saved.svg") center no-repeat;
 }
 
+.newscard__save_inactive {
+  background-image: #fff url("../../images/Bookmark.svg") center no-repeat;
+}
+
 .newscard__delete {
   background: #fff url("../../images/Trash-normal.svg") center no-repeat;
   width: 40px;

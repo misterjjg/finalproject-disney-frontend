@@ -1,14 +1,14 @@
-function SuccessModal({ name, onClose, handleClick }) {
+function SuccessModal({ name, onClose, onClick }) {
   return (
-    <div className={`modal modal__type_${name}`}>
-      <div className="modal__container">
+    <div className={"modal"}>
+      <div className={`modal__container modal__container-${name}`}>
         <button
           className="modal__close"
           type="button"
           onClick={onClose}
         ></button>
         <h2 className="modal__title">Registration Successfully Completed!</h2>
-        <button className="modal__signin-btn" onClick={handleClick}>
+        <button className="modal__signin-btn" onClick={onClick}>
           Sign in
         </button>
       </div>

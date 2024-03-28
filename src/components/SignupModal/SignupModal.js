@@ -1,36 +1,38 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import { useFormWithValidation } from "../../hooks/useForm";
 
-function SignupModal({ isOpen, onSignup, handleClose, onAltClick }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
-
-  const handleEmailChange = (e) => setEmail(e.target.value);
-  const handlePasswordChange = (e) => setPassword(e.target.value);
-  const handleUsernameChange = (e) => setUsername(e.target.value);
+function SignupModal({
+  isOpen,
+  onSignup,
+  handleClose,
+  onAltClick,
+  serverErrors,
+}) {
+  const { values, errors, isValid, handleChange, resetForm } =
+    useFormWithValidation({ email: "", password: "", name: "" });
 
   function handleSubmit(e) {
     e.preventDefault();
-    onSignup({ email, password, username });
+    onSignup(values);
   }
 
   useEffect(() => {
     if (isOpen) {
-      setEmail("");
-      setPassword("");
-      setUsername("");
+      resetForm();
     }
   }, [isOpen]);
 
   return (
     <ModalWithForm
+      name="signup"
       title="Sign Up"
       onSubmit={handleSubmit}
       handleAltClick={onAltClick}
       onClose={handleClose}
       buttonText="Sign up"
       altButtonText="Sign in"
+      isDisabled={!isValid}
     >
       <label>
         <h3 className="modal__label">Email:</h3>
@@ -39,12 +41,15 @@ function SignupModal({ isOpen, onSignup, handleClose, onAltClick }) {
           id="email-input"
           type="email"
           placeholder="Enter Email"
-          value={email}
-          onChange={handleEmailChange}
+          name="email"
+          value={values.email}
+          onChange={handleChange}
           required
         />
       </label>
-      <span className="modal__error" id="email-input-error"></span>
+      <span className="modal__error" id="email-input-error">
+        {errors.email}
+      </span>
       <label>
         <h3 className="modal__label">Password:</h3>
         <input
@@ -52,12 +57,15 @@ function SignupModal({ isOpen, onSignup, handleClose, onAltClick }) {
           id="password-input"
           type="text"
           placeholder="Enter Password"
-          value={password}
-          onChange={handlePasswordChange}
+          name="password"
+          value={values.password}
+          onChange={handleChange}
           required
         />
       </label>
-      <span className="modal__error" id="password-input-error"></span>
+      <span className="modal__error" id="password-input-error">
+        {errors.password}
+      </span>
       <label>
         <h3 className="modal__label">Username:</h3>
         <input
@@ -65,12 +73,20 @@ function SignupModal({ isOpen, onSignup, handleClose, onAltClick }) {
           id="username-input"
           type="text"
           placeholder="Enter your Username"
-          value={username}
-          onChange={handleUsernameChange}
+          name="name"
+          min={2}
+          max={10}
+          value={values.name}
+          onChange={handleChange}
           required
         />
       </label>
-      <span className="modal__error" id="username-input-error"></span>
+      <span className="modal__error" id="username-input-error">
+        {errors.name}
+      </span>
+      <span className="modal__error" id="email-unavailable-error">
+        {serverErrors.conflictError}
+      </span>
     </ModalWithForm>
   );
 }

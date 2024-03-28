@@ -16,7 +16,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "npx eslint",
+    "lint:fix": "npx eslint --fix",
+    "predeploy": "npm run build",
+    "deploy": "npm run build && scp -r ./build/* misterjjgonzabusi@newsexplorerjg.happyforever.com:/home/misterjjgonzabusi/frontend"
   },
   "eslintConfig": {
     "extends": [
@@ -24,6 +28,7 @@
       "react-app/jest"
     ]
   },
+  "homepage": "https://www.newsexplorerjg.happyforever.com",
   "browserslist": {
     "production": [
       ">0.2%",
