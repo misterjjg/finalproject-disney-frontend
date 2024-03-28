@@ -221,7 +221,6 @@ function App() {
                           <Main
                             signinClick={handleSigninModal}
                             signoutClick={handleSignout}
-                            onSignup={handleSignupModal}
                           />
                         </Route>
                         <ProtectedRoute path="/saved-news">

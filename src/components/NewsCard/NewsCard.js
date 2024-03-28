@@ -7,7 +7,7 @@ import Api from "../../utils/MainApi.js";
 import KeywordsContext from "../../contexts/KeywordsContext.js";
 import SearchResultContext from "../../contexts/SearchResultsContext.js";
 
-function NewsCard({ onSignup, newsItem }) {
+function NewsCard({ newsItem }) {
   const { currentPage } = useContext(CurrentPageContext);
   const { searchResults, setSearchResults } = useContext(SearchResultContext);
   const { savedCards, setSavedCards } = useContext(SavedCardsContext);
@@ -110,13 +110,6 @@ function NewsCard({ onSignup, newsItem }) {
       ) : hover && !isLoggedIn && currentPage === "/" ? (
         <div className="newscard__warning_signin">
           <p className="newscard__warning">Sign in to save articles</p>
-          <button
-            className="newscard__save"
-            type="button"
-            onClick={onSignup}
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-          ></button>
         </div>
       ) : (
         ""

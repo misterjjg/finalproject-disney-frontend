@@ -6,7 +6,7 @@ import About from "../About/About";
 import IsLoadingContext from "../../contexts/IsLoadingContext";
 import Preloader from "../Preloader/Preloader";
 
-function Main({ signinClick, signoutClick, onSignup }) {
+function Main({ signinClick, signoutClick }) {
   const { isLoading } = useContext(IsLoadingContext);
 
   return (
@@ -16,7 +16,7 @@ function Main({ signinClick, signoutClick, onSignup }) {
         <div className="main__results">
           {isLoading === false ? (
             <>
-              <NewsCardList onSignup={onSignup} />
+              <NewsCardList />
             </>
           ) : (
             <Preloader />

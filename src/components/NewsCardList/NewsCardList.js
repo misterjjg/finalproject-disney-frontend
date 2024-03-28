@@ -6,7 +6,7 @@ import SearchResultContext from "../../contexts/SearchResultsContext";
 import IsLoadingContext from "../../contexts/IsLoadingContext";
 import Preloader from "../Preloader/Preloader";
 
-function NewsCardList({ onSignup }) {
+function NewsCardList() {
   const { hasSearched } = useContext(HasSearchedContext);
   const { searchResults } = useContext(SearchResultContext);
   const { isLoading } = useContext(IsLoadingContext);
@@ -31,9 +31,7 @@ function NewsCardList({ onSignup }) {
           <h3 className="card__results-title">Search Results</h3>
           <div className="card__container">
             {searchResults?.slice(0, cardsVisible).map((news) => {
-              return (
-                <NewsCard key={news.url} newsItem={news} onSignup={onSignup} />
-              );
+              return <NewsCard key={news.url} newsItem={news} />;
             })}
           </div>
           <button
