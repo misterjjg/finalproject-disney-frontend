@@ -8,4 +8,4 @@ The goal of this application is to make a call to a news API, which responds wit
 
 - [GitHub Repo](https://github.com/misterjjg/finalproject-news-explorer-frontend)
 - [Backend Code](https://github.com/misterjjg/finalproject-news-explorer-backend)
-- [Server](https://newsexplorerjg.happyforever.com)
+- [Server](https://newsexplorerjg.happyforever.com) Server is no longer active
